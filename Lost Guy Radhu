@@ -1,0 +1,44 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    
+	    int t,n,q;
+	    Scanner sc= new Scanner(System.in);
+	    t=sc.nextInt();
+	    while(t>0)
+	    {
+	        t--;
+	        int largest = Integer.MIN_VALUE;
+	        n= sc.nextInt();
+	        q= sc.nextInt();
+	        int arrmax[]=new int[n];
+	        for(int i=0;i<n;i++)
+	        {
+	            int num=sc.nextInt();
+	            if(largest < num)
+	            {
+	                arrmax[i] = num;
+	                largest=num;
+	            }
+	            else
+	            {
+	                arrmax[i]=largest;
+	            }
+	        }
+	        for(int i=0;i<q;i++)
+	        {
+	            int query=sc.nextInt();
+	            System.out.println(arrmax[query-1]);
+	        }
+	    }
+		// your code goes here
+	}
+}
