@@ -1,0 +1,80 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    
+		int t;
+		Scanner sc= new Scanner(System.in);
+		t=sc.nextInt();
+		while(t>0)
+		{
+		    t--;
+		    int n,e;
+		    n=sc.nextInt();
+		    e=sc.nextInt();
+		    Queue<Integer> rq= new LinkedList<>();
+		    Queue<Integer> gq= new LinkedList<>();
+		    Queue<Integer> eq= new LinkedList<>();
+		    int rw=0,gw=0;
+		    for(int i=0;i<n;i++)
+		    {
+		        int num=sc.nextInt();
+		        rq.add(num);
+		    }
+		    for(int i=0;i<n;i++)
+		    {
+		        int num=sc.nextInt();
+		        gq.add(num);
+		    }
+		    for(int i=0;i<e;i++)
+		    {
+		        int num=sc.nextInt();
+		        eq.add(num);
+		    }
+		    while(rq.size() != 0)
+		    {
+		        if(rq.peek() > gq.peek())
+		        {
+		            rw++;
+		            rq.remove();
+		            gq.remove();
+		            if(eq.size() >0)
+		            {
+		            rq.add(eq.remove());
+		            gq.add(eq.remove());
+		            }
+		        }
+		        else
+		        {
+		            gw++;
+		            rq.remove();
+		            gq.remove();
+		            if(eq.size() >0)
+		            {
+		            gq.add(eq.remove());
+		            rq.add(eq.remove());
+		            }
+		        }
+		    }
+		    if(rw > gw)
+		    {
+		        System.out.println("Radhesh wins");
+		    }
+		    else if(rw < gw)
+		    {
+		        System.out.println("Geethakoomaree wins");
+		    }
+		    else
+		    {
+		        System.out.println("Tie");
+		    }
+		}
+	}
+}
